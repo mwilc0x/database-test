@@ -1,0 +1,3 @@
+A simple little ruby script I wrote that read in data from a text file.
+
+I have no real prior experience with ruby, the ActiveRecord model or MySQL. Coming from a java background I wanted to get my feet wet in all these areas. I usedthe help of Ruby in Practice, but implemented the code to grab the data from the text file and load it into the database myself.
