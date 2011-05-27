@@ -8,23 +8,26 @@ ActiveRecord::Base.establish_connection(
   :host => "localhost",
   :database => "paper",
   :username => "root",
-  :password => ""
+  :password => "toor"
 )
 
 # Begin ActiveRecord classes
 class Product < ActiveRecord::Base
   has_many :purchases
-end
-
-class Purchase < ActiveRecord::Base
   belongs_to :store
 end
 
+class Purchase < ActiveRecord::Base
+  belongs_to :product
+end
+
 class Store < ActiveRecord::Base
+  has_many :products
+  has_many :purchases, :through => :products
 end
 
 #Begin logic
-myproducts = Product.find(:all)
+myproducts = Product.all
 
 file = File.open( "data.txt" )
 file_lines = file.read.split("\n")
@@ -50,7 +53,7 @@ end
 graph = Scruffy::Graph.new
 graph.title = "Visual Representation of the Data"
 
-stores = Store.find(:all, :select=>"id, location")
+stores = Store.select('id, location').all
 
 myproducts.each do |product|
   counts = stores.collect do |store|
