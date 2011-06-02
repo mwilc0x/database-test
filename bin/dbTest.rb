@@ -1,4 +1,8 @@
 require 'rubygems'
+
+# Setup Bundler and make sure we're getting our gems from it
+require 'bundler/setup'
+
 require 'active_record'
 require 'scruffy'
 

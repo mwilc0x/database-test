@@ -1,0 +1,10 @@
+.bundle
+.DS_Store
+._*
+*~
+doc/*
+log/*
+pkg/*
+coverage/*
+.rvmrc
+.yardoc
