@@ -6,6 +6,8 @@ require 'bundler/setup'
 require 'active_record'
 require 'scruffy'
 
+$:.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
+
 # Begin ActiveRecord configuration
 ActiveRecord::Base.establish_connection(
   :adapter => "mysql2",
@@ -15,20 +17,7 @@ ActiveRecord::Base.establish_connection(
   :password => "toor"
 )
 
-# Begin ActiveRecord classes
-class Product < ActiveRecord::Base
-  has_many :purchases
-  belongs_to :store
-end
-
-class Purchase < ActiveRecord::Base
-  belongs_to :product
-end
-
-class Store < ActiveRecord::Base
-  has_many :products
-  has_many :purchases, :through => :products
-end
+%w(store product purchase).each {|lib| require lib }
 
 #Begin logic
 myproducts = Product.all
