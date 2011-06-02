@@ -1,2 +1,0 @@
-stores: Atlanta, Chicago, Denver, New York, Philadelphia, San Francisco
-products: CD, Desktop Computer, DVD, Headphone, iPhone, Laptop Computer, Router, Stereo Equipment, TV
