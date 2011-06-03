@@ -10,9 +10,6 @@
 # to unit testing.
 
 require 'test/unit'
-require File.join(File.dirname(__FILE__), '..', 'lib', 'product')
-require File.join(File.dirname(__FILE__), '..', 'lib', 'purchase')
-require File.join(File.dirname(__FILE__), '..', 'lib', 'store')
 require 'yaml'
 
 db_config = YAML.load_file(File.join(File.dirname(__FILE__), '..', 'bin', 'database.yml'))
@@ -26,7 +23,9 @@ ActiveRecord::Base.establish_connection(db_config)
 lib_dir = File.join(File.dirname(__FILE__), '..', 'lib')
 $:.unshift(lib_dir)
 
-# TODO: Separate Store model into its own file and require it here. Ditto for other models.
-#
-# i.e.: require 'product'
+require File.join(File.dirname(__FILE__), '..', 'lib', 'product')
+require File.join(File.dirname(__FILE__), '..', 'lib', 'purchase')
+require File.join(File.dirname(__FILE__), '..', 'lib', 'store')
+require File.join(File.dirname(__FILE__), '..', 'lib', 'employees')
+
 # or iterate thru an array of models: %w(store product purchase).each {|lib| require lib }

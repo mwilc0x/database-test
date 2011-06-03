@@ -1,6 +1,0 @@
-# Database Config File (this is a comment)
-adapter: mysql2
-host: localhost
-database: paper
-username: root
-password: toor
