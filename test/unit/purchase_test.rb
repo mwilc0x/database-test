@@ -1,7 +1,5 @@
 require "../test_helper.rb"
 
-# TODO: This won't work until we split the models into separate files and require them into test_helper.rb
-
 class PurchaseTest < Test::Unit::TestCase
  def setup
   @purchase = Purchase.new
@@ -9,6 +7,14 @@ class PurchaseTest < Test::Unit::TestCase
 
  def test_is_a_purchase
   assert @purchase.is_a?(Purchase)
+ end
+
+ def test_has_product_id
+  assert @purchase.respond_to?(:product_id)
+ end
+
+ def test_has_store_id
+  assert @purchase.respond_to?(:store_id)
  end
 
  def test_has_product_field

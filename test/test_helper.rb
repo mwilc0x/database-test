@@ -10,7 +10,13 @@
 # to unit testing.
 
 require 'test/unit'
+require File.join(File.dirname(__FILE__), '..', 'lib', 'product')
+require File.join(File.dirname(__FILE__), '..', 'lib', 'purchase')
+require File.join(File.dirname(__FILE__), '..', 'lib', 'store')
+require 'yaml'
 
+db_config = YAML.load_file(File.join(File.dirname(__FILE__), '..', 'bin', 'database.yml'))
+ActiveRecord::Base.establish_connection(db_config)
 
 # MAGIC: This tweaks the load path so that we can just require individual 
 # models w/o path info. The global variable $: represents the load path, 
